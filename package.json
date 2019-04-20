@@ -1,15 +1,17 @@
 {
-  "name": "async_defer",
-  "version": "0.1.0",
+  "name": "deferify",
+  "version": "0.2.0",
   "description": "adds defer to script",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
     "tdd": "mocha --watch"
   },
+  "bin": "./index.js",
   "author": "drag13",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "6.1.3"
+    "mocha": "6.1.3",
+    "@types/node": "11.13.6"
   }
 }
