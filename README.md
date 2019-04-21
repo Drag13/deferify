@@ -7,6 +7,7 @@ If you have SPA, you, probably, dont' want to block loading your application wit
 ## Benefits
 
 Check this two image from lighthouse. Nothing was done except deferify. Looks better, yeah?
+![lighthouse comparsion](/readme/comparsion.PNG?raw=true)
 
 ## How to use
 
