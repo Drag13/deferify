@@ -8,8 +8,22 @@ If you have SPA, you, probably, dont' want to block loading your application wit
 
 ## Benefits
 
+Just check lighthouse reports. Left side - before, right - after. All comparsions was done on default applications produced by the corresponding cli without any additional optimisation/changes.
+
+### @angular/CLI
+
+*(v. 7.3.8)*
+
 Check this two image from lighthouse. Nothing was done except deferify. Looks better, yeah?
-![lighthouse comparsion](https://raw.githubusercontent.com/Drag13/deferify/master/readme/comparsion.PNG)
+![lighthouse comparsion for angular/cli](https://raw.githubusercontent.com/Drag13/deferify/master/readme/comparsion-angular.PNG)
+
+### create-react-app
+
+*(v. 16.8.6)*
+
+![lighthouse comparsion for create-react-app](https://raw.githubusercontent.com/Drag13/deferify/master/readme/comparsion-react.PNG)
+
+All comparsions was done 21.04.2019
 
 ## How to use
 
@@ -39,4 +53,4 @@ Tool should do only one thing and do it well.
 
 Right now deferify works only with index.html and doesn't support globs to check another files
 
-Let's do our apps better
+*Let's do our apps better*
