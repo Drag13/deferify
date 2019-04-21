@@ -20,5 +20,6 @@
   "devDependencies": {
     "mocha": "6.1.3",
     "@types/node": "11.13.6"
-  }
+  },
+  "preversion": "npm test"
 }
