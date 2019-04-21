@@ -19,8 +19,10 @@ npm i --save-dev deferify
 Add it to your build process:
 
 ```json
-"build:prod" : "ng build --prod && deferify"
+"build:prod" : "ng build --prod && deferify {folder}/{index.html}"
 ```
+
+**Don't forget to set propper path!**
 
 ## Skipped tags
 
