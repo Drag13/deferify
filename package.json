@@ -2,7 +2,13 @@
   "name": "deferify",
   "version": "0.3.0",
   "description": "Adds defer attributes to script tags",
-  "keywords": ["defer", "script", "lighthouse", "web", "performance"],
+  "keywords": [
+    "defer",
+    "script",
+    "lighthouse",
+    "web",
+    "performance"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "mocha",
