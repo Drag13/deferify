@@ -4,16 +4,38 @@
 
 ## Idea
 
-If you have SPA, you, probably, dont' want to block loading your application with synchronius scripts. If so, you can manually add [defer](https://www.w3schools.com/tags/att_script_defer.asp) or [async](https://www.w3schools.com/tags/att_script_async.asp) attributes into your scripts. But what if you use cli for generating output? This tiny CLI parse your index.html file and adds defer attribute to your scripts tag
+If you have Single Page application, you, probably, don't' want to block loading your application with synchronous scripts. To help with this [defer](https://www.w3schools.com/tags/att_script_defer.asp) and [async](https://www.w3schools.com/tags/att_script_async.asp) tags appeared. But what if you use cli for generating output? Right now, no @angular/cli, no react, doesn't support adding asynchronous attributes out of the box. This tiny CLI parse your index.html file and adds defer attribute to your scripts tag
 
 ## Benefits
 
-Check this two image from lighthouse. Nothing was done except deferify. Looks better, yeah?
-![lighthouse comparsion](https://raw.githubusercontent.com/Drag13/deferify/master/readme/comparsion.PNG)
+Just check lighthouse reports. Left side - before, right - after. All comparisons were done on default applications produced by the corresponding cli without any additional optimization/changes.
+
+### @angular/CLI
+
+*(v. 7.3.8)*
+
+Check these two image from the lighthouse. Nothing was done except deferify. Looks better, yeah?
+![lighthouse comparsion for angular/cli](https://raw.githubusercontent.com/Drag13/deferify/master/readme/comparsion-angular.PNG)
+
+Reports: [before](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-angular-before.json), [after](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-angular-after.json)
+
+### create-react-app
+
+*(v. 16.8.6)*
+
+![lighthouse comparsion for create-react-app](https://raw.githubusercontent.com/Drag13/deferify/master/readme/comparsion-react.PNG)
+
+Reports: [before](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-react-before.json) [after](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-react-after.json)
+
+All comparisons were done 21.04.2019 and may vary depending on your conditions.
+
+## What about VUE
+
+Right now, adding defer attribute to the hello-world VUE application demonstrate a slightly negative impact or no impact. This shows that all performance tunings should be carefully measured before going to the prod.
 
 ## How to use
 
-Install deferify
+Install [deferify](https://www.npmjs.com/package/deferify)
 
 ```cmd
 npm i --save-dev deferify
@@ -25,7 +47,7 @@ Add it to your build process:
 "build:prod" : "ng build --prod && deferify {folder}/{index.html}"
 ```
 
-**Don't forget to set propper path!**
+**Don't forget to set proper path!**
 
 ## Skipped tags
 
@@ -33,10 +55,10 @@ Deferify will not touch scripts without src, with already added defer or async a
 
 ## What about adding async
 
-Tool should do only one thing and do it well.
+The tool should do only one thing and do it well.
 
 ## Known gaps
 
-Right now deferify works only with index.html and doesn't support globs to check another files
+Right now deferify works only with index.html and doesn't support globs to check other files
 
-Let's do our apps better
+*Let's do our apps better*
