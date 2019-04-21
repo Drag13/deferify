@@ -3,6 +3,7 @@ const _deferify = require('./deferify');
 const _file = require('./file');
 
 (function (file, transform) {
+    console.log('STARTING: deferify starts');
     const [rawPathToFile] = process.argv.slice(2);
 
     if (rawPathToFile == undefined || rawPathToFile === '') {
