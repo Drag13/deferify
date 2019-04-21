@@ -1,5 +1,7 @@
 # DEFERIFY
 
+[![Build Status](https://travis-ci.org/Drag13/deferify.svg?branch=master)](https://travis-ci.org/Drag13/deferify) ![GitHub](https://img.shields.io/github/license/drag13/deferify.svg)
+
 ## Idea
 
 If you have SPA, you, probably, dont' want to block loading your application with synchronius scripts. If so, you can manually add [defer](https://www.w3schools.com/tags/att_script_defer.asp) or [async](https://www.w3schools.com/tags/att_script_async.asp) attributes into your scripts. But what if you use cli for generating output? This tiny CLI parse your index.html file and adds defer attribute to your scripts tag
