@@ -17,17 +17,21 @@ Just check lighthouse reports. Left side - before, right - after. All comparsion
 Check this two image from lighthouse. Nothing was done except deferify. Looks better, yeah?
 ![lighthouse comparsion for angular/cli](https://raw.githubusercontent.com/Drag13/deferify/master/readme/comparsion-angular.PNG)
 
+Reports: [before](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-angular-before.PNG), [after](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-angular-after.PNG)
+
 ### create-react-app
 
 *(v. 16.8.6)*
 
 ![lighthouse comparsion for create-react-app](https://raw.githubusercontent.com/Drag13/deferify/master/readme/comparsion-react.PNG)
 
-All comparsions was done 21.04.2019
+Reports: [before](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-react-before.PNG) [after](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-react-after.PNG)
+
+All comparsions was done 21.04.2019, and may varied depending on your conditions.
 
 ## How to use
 
-Install deferify
+Install [deferify](https://www.npmjs.com/package/deferify)
 
 ```cmd
 npm i --save-dev deferify
