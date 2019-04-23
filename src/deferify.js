@@ -7,12 +7,13 @@ const transform = require('./transform');
  * @returns {boolean} Returns true if file was found and updated
  */
 function tryDeferify(path) {
-    const text = file.read(path);
-    const result = transform(text);
+    try {
+        const text = file.read(path);
+        const result = transform(text);
+        return text.length !== result.length ? file.write(path, result) : false;
+    } catch (e) { }
 
-    return text.length !== result.length
-        ? file.write(path, result) || true // looks wiered but works
-        : false;
+    return false;
 }
 
 module.exports = tryDeferify;

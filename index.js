@@ -1,49 +1,19 @@
-#! /usr/bin/env node
-const _deferify = require('./deferify');
-const _file = require('./file');
-const defaultPathToFile = '/dist';
+'use strict';
+const file = require('./src/file');
+const tryDeferify = require('./src/deferify');
 
-(function (file, transform) {
-    console.log('STARTING: deferify starts');
-    let [rawPathToFile] = process.argv.slice(2);
-    rawPathToFile = rawPathToFile || defaultPathToFile;
+const defaultPath = './dist';
 
-    const pathToFile = file.normalizePath(rawPathToFile);
+const [rawPathToFile = defaultPath] = process.argv.slice(2);
+const normalizedPath = file.normalizePath(rawPathToFile);
+const fileList = file.isFile(normalizedPath)
+    ? [normalizedPath]
+    : file.findFiles(normalizedPath);
 
-    if (file.isFile(pathToFile)) {
-        return tryUpdateFile(pathToFile) ? 0 : -1;
-    } else {
-        const files = file.getAllIndexFiles(pathToFile);
-        console.log(files);
-        files.forEach(tryUpdateFile);
-    }
-
-    function tryUpdateFile(filePath) {
-
-        if (!file.exists(filePath)) {
-            console.error(`ERROR: file "${filePath}" not exists or not accessible. Operation aborted.`);
-            return false;
-        }
-
-        let fileContent = '';
-        try {
-            fileContent = file.read(filePath);
-        } catch (e) {
-            console.error(`ERROR: unexpected error during reading file: ${e}. Operation aborted.`);
-            return false;
-        }
-
-        const result = transform(fileContent);
-
-        try {
-            file.write(filePath, result);
-        } catch (e) {
-            console.error(`ERROR: unexpected error during writing file: ${e}. Operation aborted.`);
-            return false;
-        }
-
-        console.log("SUCCESS. Everything is done. Wish you fastest app!");
-
-        return true;
-    }
-}(_file, _deferify));
+if (fileList.length > 0) {
+    fileList.forEach(path => tryDeferify(path)
+        ? console.log(`LOG: "${path}" updated`)
+        : console.log(`LOG: "${path}" doesn't require update`));
+} else {
+    console.log(`WARNING: No files found: "${normalizedPath}"`);
+}

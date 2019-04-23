@@ -41,10 +41,7 @@ function isFile(filePath) {
  * @returns {string} Returns file content as text
  */
 function read(filePath, encoding = 'utf8') {
-    try { return fs.readFileSync(filePath, { encoding }); }
-    catch (e) { }
-
-    return '';
+    return fs.readFileSync(filePath, { encoding });
 }
 
 /**
@@ -55,9 +52,7 @@ function read(filePath, encoding = 'utf8') {
  * @returns {boolean} Returns true if witten
  */
 function write(filePath, content, encoding = 'utf8') {
-    try { fs.writeFileSync(filePath, content, { encoding }); }
-    catch (e) { return false; }
-
+    fs.writeFileSync(filePath, content, { encoding });
     return true;
 }
 
