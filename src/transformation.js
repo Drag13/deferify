@@ -1,11 +1,10 @@
 /**
  * @param {string} html 
  */
-function deferify(html) {
-    if (html == null || html === '') { return ''; }
+function updateScripts(html, transform) {
     return html
         .split('<script')
-        .map((line, i) => !!i ? insertDeferAttr(line) : line)
+        .map((line, i) => !!i ? transform(line) : line)
         .join('<script');
 }
 
@@ -15,7 +14,6 @@ function deferify(html) {
  * @returns Returns new line
  */
 function insertDeferAttr(line) {
-
     const isTransformable =
         line.includes('src') &&
         line.includes('>') &&
@@ -25,4 +23,8 @@ function insertDeferAttr(line) {
     return isTransformable ? line.replace(/([^>]*)(>)/, '$1 defer>') : line;
 }
 
-module.exports = deferify;
+function deferify(html) {
+    return html != null ? updateScripts(html, insertDeferAttr) : '';
+}
+
+module.exports = { deferify };

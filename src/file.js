@@ -1,14 +1,10 @@
+/**
+ * File module
+ *@module file 
+ */
+
 const fs = require('fs');
 const path = require('path');
-
-/**
- * Normalize the path and transform to absolute
- * @param {string} path Path to the file
- * @returns {string} Returns absolute path to the file with .html extension
- */
-function normalizePath(filePath = '') {
-    return path.join(process.cwd(), filePath);
-}
 
 /**
  * Checks if file/folder exists
@@ -23,6 +19,15 @@ function exists(filePath) {
 }
 
 /**
+ * Normalize the path and transform to absolute
+ * @param {string} path Path to the file
+ * @returns {string} Returns absolute path to the file with .html extension
+ */
+function normalizePath(filePath = '') {
+    return path.join(process.cwd(), filePath);
+}
+
+/**
  * Check if the path leads to file or folder
  * @param {string} filePath 
  * @returns {boolean} Returns true if path leads to the folder
@@ -32,28 +37,6 @@ function isFile(filePath) {
     catch (e) { }
 
     return false;
-}
-
-/**
- * Reads the file from disk
- * @param {path} filePath Absolute path to the file
- * @param {encoding} encoding
- * @returns {string} Returns file content as text
- */
-function read(filePath, encoding = 'utf8') {
-    return fs.readFileSync(filePath, { encoding });
-}
-
-/**
- * Write file to the disk
- * @param {string} filePath Absolute path to the file
- * @param {string} content Content to write
- * @param {string} encoding Default encoding is set to UTF8
- * @returns {boolean} Returns true if witten
- */
-function write(filePath, content, encoding = 'utf8') {
-    fs.writeFileSync(filePath, content, { encoding });
-    return true;
 }
 
 /**
@@ -76,10 +59,23 @@ function findFiles(pathToFolder, fileName = 'index.html', files = []) {
     return files;
 }
 
+/**
+ * Updates files using transformer function
+ * @param {string[]} fileList 
+ */
+function updateFiles(fileList, transform) {
+    return fileList.reduce((sum, path) => {
+        const content = fs.readFileSync(path, { encoding: 'utf8' });
+        const result = transform(content);
+        return content !== result
+            ? fs.writeFileSync(path, result) || sum + 1
+            : sum;
+    }, 0);
+}
+
 module.exports = {
-    normalizePath,
-    isFile,
-    read,
-    write,
-    findFiles
+    normalizePath
+    , isFile
+    , findFiles
+    , updateFiles
 }
