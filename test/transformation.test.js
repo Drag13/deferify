@@ -1,5 +1,5 @@
 const assert = require('assert');
-const defer = require('../deferify');
+const defer = require('../src/transformation').deferify;
 
 const testSuit = [
     {

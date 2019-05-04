@@ -17,7 +17,7 @@ Just check lighthouse reports. Left side - before, right - after. All comparison
 Check these two image from the lighthouse. Nothing was done except deferify. Looks better, yeah?
 ![lighthouse comparsion for angular/cli](https://raw.githubusercontent.com/Drag13/deferify/master/readme/comparsion-angular.PNG)
 
-Reports: [before](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-angular-before.json), [after](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-angular-after.json)
+Lighthouse reports: [before](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-angular-before.json), [after](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-angular-after.json)
 
 ### create-react-app
 
@@ -25,11 +25,11 @@ Reports: [before](https://raw.githubusercontent.com/Drag13/deferify/master/readm
 
 ![lighthouse comparsion for create-react-app](https://raw.githubusercontent.com/Drag13/deferify/master/readme/comparsion-react.PNG)
 
-Reports: [before](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-react-before.json) [after](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-react-after.json)
+Lighthouse reports: [before](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-react-before.json), [after](https://raw.githubusercontent.com/Drag13/deferify/master/readme/lighthouse-react-after.json)
 
 All comparisons were done 21.04.2019 and may vary depending on your conditions.
 
-## What about VUE
+### What about VUE
 
 Right now, adding defer attribute to the hello-world VUE application demonstrate a slightly negative impact or no impact. This shows that all performance tunings should be carefully measured before going to the prod.
 
@@ -44,10 +44,16 @@ npm i --save-dev deferify
 Add it to your build process:
 
 ```json
-"build:prod" : "ng build --prod && deferify {folder}/{index.html}"
+"build:prod" : "ng build --prod && deferify"
 ```
 
-**Don't forget to set proper path!**
+Deferify will scan your dist folder and all subfolders for all index.html files and tries to update them. Also you can pass path to another folder:
+
+> deferify build/
+
+or single file
+
+> deferify prod/index.html
 
 ## Skipped tags
 
@@ -57,8 +63,8 @@ Deferify will not touch scripts without src, with already added defer or async a
 
 The tool should do only one thing and do it well.
 
-## Known gaps
+## Disclamer
 
-Right now deferify works only with index.html and doesn't support globs to check other files
+Please note that any optimization (including this tool) should be done with care.
 
 *Let's do our apps better*
