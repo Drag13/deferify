@@ -1,8 +1,6 @@
 # DEFERIFY
 
-[![Build Status](https://travis-ci.org/Drag13/deferify.svg?branch=master)](https://travis-ci.org/Drag13/deferify) ![GitHub](https://img.shields.io/github/license/drag13/deferify.svg)
-
-[![codecov](https://codecov.io/gh/Drag13/deferify/branch/multiple-folders/graph/badge.svg)](https://codecov.io/gh/Drag13/deferify)
+[![Build Status](https://travis-ci.org/Drag13/deferify.svg?branch=master)](https://travis-ci.org/Drag13/deferify) ![GitHub](https://img.shields.io/github/license/drag13/deferify.svg) [![codecov](https://codecov.io/gh/Drag13/deferify/branch/multiple-folders/graph/badge.svg)](https://codecov.io/gh/Drag13/deferify)
 
 ## Disclaimer
 
