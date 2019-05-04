@@ -2,6 +2,10 @@
   "name": "deferify",
   "version": "0.4.2",
   "description": "Adds defer attributes to script tags",
+  "files": [
+    "/src",
+    "index.js"
+  ],
   "keywords": [
     "defer",
     "script",
