@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Drag13/deferify.svg?branch=master)](https://travis-ci.org/Drag13/deferify) ![GitHub](https://img.shields.io/github/license/drag13/deferify.svg)
 
+[![codecov](https://codecov.io/gh/Drag13/deferify/branch/multiple-folders/graph/badge.svg)](https://codecov.io/gh/Drag13/deferify)
+
 ## Disclaimer
 
 This is the optimization package. As any optimization, it should be take with care,with measuring results before and after applying.
