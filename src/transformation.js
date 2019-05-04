@@ -1,10 +1,10 @@
 /**
  * @param {string} html 
  */
-function updateScripts(html, transform) {
+function updateScripts(html, transformScript) {
     return html
         .split('<script')
-        .map((line, i) => !!i ? transform(line) : line)
+        .map((line, i) => !!i ? transformScript(line) : line)
         .join('<script');
 }
 

@@ -65,6 +65,7 @@ function findFiles(pathToFolder, fileName = 'index.html', files = []) {
  */
 function updateFiles(fileList, transform) {
     return fileList.reduce((sum, path) => {
+        console.log(`LOG: found file: ${path}`);
         const content = fs.readFileSync(path, { encoding: 'utf8' });
         const result = transform(content);
         return content !== result

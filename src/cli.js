@@ -8,18 +8,18 @@
 function cli(args
     , { normalizePath, isFile, findFiles, updateFiles }
     , { deferify }
-    , { indexHtml }) {
+    , { defaultPath, defaultFile }) {
 
     console.log(`LOG: deferify starts`);
 
-    const [rawPathToFile = indexHtml] = args;
+    const [rawPathToFile = defaultPath] = args;
     const normalizedPath = normalizePath(rawPathToFile);
 
     const fileList = isFile(normalizedPath)
         ? [normalizedPath]
         : findFiles(normalizedPath);
 
-    const filesUpdated = updateFiles(fileList, deferify);
+    const filesUpdated = updateFiles(fileList, deferify, defaultFile);
 
     console.log(`LOG: deferify done. Updated ${filesUpdated}`);
 

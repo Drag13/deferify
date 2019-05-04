@@ -1,3 +1,4 @@
 module.exports = {
-    indexHtml: 'dist/index.html'
+    defaultPath: 'dist/index.html',
+    defaultFile: 'index.html'
 }
