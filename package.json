@@ -15,7 +15,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "nyc --cwd ./src --all --reporter lcov --reporter html --reporter text mocha ./test/*/*.test.js",
+    "test": "nyc --reporter lcov --reporter html --reporter text mocha ./test/*/*.test.js",
     "tdd": "mocha --watch --reporter dot"
   },
   "bin": "./index.js",

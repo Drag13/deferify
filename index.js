@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 'use strict';
 const defaults = require('./src/defaults');
 const cli = require('./src/cli');
