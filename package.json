@@ -23,8 +23,8 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "11.13.6",
-    "mocha": "^6.1.4",
-    "nyc": "14.0.0"
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.0"
   },
   "preversion": "npm test"
 }
